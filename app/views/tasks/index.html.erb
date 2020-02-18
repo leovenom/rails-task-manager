@@ -1,0 +1,12 @@
+<h1>Task#Index</h1>
+
+<ul class="pg">
+    <% @tasks.each do |task| %>
+      <li> <% if task.completed == false %>
+        <i class="far fa-square"></i>
+          <% else %>
+        <i class="fas fa-check-square"></i>
+    <% end %>
+      <%= link_to task.title, task_path(task) %> </li>
+      <% end %>
+</ul>
