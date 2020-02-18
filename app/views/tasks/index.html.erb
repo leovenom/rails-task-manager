@@ -1,12 +1,19 @@
-<h1>Task#Index</h1>
+<h1>Tasks</h1>
+
+<%= link_to 'Add new task', new_task_path %>
 
 <ul class="pg">
     <% @tasks.each do |task| %>
-      <li> <% if task.completed == false %>
+      <li>
+
+        <% if task.completed == false %>
         <i class="far fa-square"></i>
           <% else %>
         <i class="fas fa-check-square"></i>
     <% end %>
-      <%= link_to task.title, task_path(task) %> </li>
+      <%= link_to task.title, task_path(task) %>
+      <small><%= link_to '💣', task_path(task), method: :delete, data: { confirm: 'Are you sure?' } %></small>
+
+      </li>
       <% end %>
 </ul>
